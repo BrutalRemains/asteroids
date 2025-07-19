@@ -1,11 +1,12 @@
 import pygame
 from constants import *
 
-pygame.init()
-
-SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 def main():
+    pygame.init()
+    SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
+    dt = 0
     run = True
     
     while run:
@@ -13,8 +14,10 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
-        SCREEN.fill((0,0,0))
+        SCREEN.fill("black")
         pygame.display.flip()
+
+        dt += clock.tick(60) / 1000
     
     pygame.quit()
 
